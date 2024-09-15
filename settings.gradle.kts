@@ -21,4 +21,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "ModulesTutorial3"
 include(":app")
- 
+include(":data")
+include(":domain")
+include(":presentation")
+include(":common")

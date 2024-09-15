@@ -1,9 +1,9 @@
 package com.example.modulestutorial3.di
 
 import com.example.common.util.Const
+import com.example.data.DogApi
+import com.example.data.DogRepositoryImpl
 import com.example.domain.DogRepository
-import com.example.modulestutorial3.data.DogApi
-import com.example.modulestutorial3.data.DogRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -18,15 +18,15 @@ import javax.inject.Singleton
 abstract class AppModule {
 
     @Binds
-    abstract fun bindDogRepository(impl: DogRepositoryImpl): DogRepository
+    abstract fun bindDogRepository(impl: com.example.data.DogRepositoryImpl): DogRepository
 
     companion object {
         @Singleton
         @Provides
-        fun provideDogApi(): DogApi = Retrofit.Builder()
+        fun provideDogApi(): com.example.data.DogApi = Retrofit.Builder()
             .baseUrl(Const.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(DogApi::class.java)
+            .create(com.example.data.DogApi::class.java)
     }
 }
